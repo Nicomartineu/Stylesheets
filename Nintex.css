@@ -1,0 +1,7 @@
+.nx-theme-form .nx-panel-header {
+    background-image: url('	https://nicomartineu.github.io/Stylesheets/NintexBanner.jpg');
+    background-size: cover;
+    background-position-y: -50px;
+    height: 100px;
+    --ntx-form-theme-color-secondary: #FFF8F4;
+}
