@@ -31,3 +31,13 @@ padding: 0;
     border-right: none;
     border-radius: unset;
 }
+
+.nx-theme-form .nx-theme-styles input.nx-theme-input-1 {
+    background: var(--ntx-form-theme-color-input-background);
+    border-color: var(--ntx-form-theme-color-border);
+    caret-color: var(--ntx-form-theme-color-input-text);
+    color: var(--ntx-form-theme-color-input-text);
+    font-family: var(--ntx-form-theme-font-family);
+    font-size: var(--ntx-form-theme-text-input-size);
+    border-radius: var(--ntx-form-theme-border-radius);
+}
