@@ -13,5 +13,6 @@ padding: 0;
 .nx-theme-form .nx-group-control-container .nx-group-control-header ntx-richtext-label .nx-theme-richtext {
     margin-bottom: 9px;
     padding-top: 9px;
-    font-size: 36pt !important;
+    font-size: xx-large !important;
+    padding-left: 16px;
 }
