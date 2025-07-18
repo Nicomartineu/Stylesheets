@@ -32,7 +32,7 @@ padding: 0;
     border-radius: unset;
 }
 
-.nx-theme-form .nx-theme-styles input.nx-theme-input-1 {
+.nx-theme-form .nx-theme-styles textarea.nx-theme-input-1 {
     background: var(--ntx-form-theme-color-input-background);
     border-color: var(--ntx-form-theme-color-border);
     caret-color: var(--ntx-form-theme-color-input-text);
@@ -40,4 +40,10 @@ padding: 0;
     font-family: var(--ntx-form-theme-font-family);
     font-size: var(--ntx-form-theme-text-input-size);
     border-radius: var(--ntx-form-theme-border-radius);
+}
+
+.nx-theme-form .nx-theme-styles .nx-group-control-container {
+    background-color: var(--ntx-form-theme-color-form-background);
+    border-radius: var(--ntx-form-theme-border-radius);
+    border-radius: 16px 16px var(--ntx-form-theme-border-radius) var(--ntx-form-theme-border-radius);
 }
