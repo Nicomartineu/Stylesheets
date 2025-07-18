@@ -4,6 +4,8 @@
     background-position-y: -50px;
     height: 100px;
     --ntx-form-theme-color-secondary: #FFF8F4;
+    --ntx-form-theme-border-radius: 16px;
+    margin-bottom: 16px;
 }
 
 .nx-theme-form .nx-group-control-container .nx-group-control-header {
