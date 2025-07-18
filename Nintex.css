@@ -51,3 +51,10 @@ padding: 0;
     background-color: yellow !important;
     box-shadow: var(--ntx-form-theme-color-secondary-shadow-contrast);
 }
+
+.nx-theme-form .nx-theme-styles ntx-datetime .nx-theme-datepicker-1 {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: revert;
+}
