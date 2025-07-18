@@ -44,6 +44,5 @@ padding: 0;
 
 .nx-theme-form .nx-theme-styles .nx-group-control-container {
     background-color: var(--ntx-form-theme-color-form-background);
-    border-radius: var(--ntx-form-theme-border-radius);
     border-radius: 16px 16px var(--ntx-form-theme-border-radius) var(--ntx-form-theme-border-radius);
 }
