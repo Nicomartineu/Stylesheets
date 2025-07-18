@@ -6,3 +6,6 @@
     --ntx-form-theme-color-secondary: #FFF8F4;
 }
 
+.nx-group-control-container .nx-group-control-header {
+padding: 0;
+}
