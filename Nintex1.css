@@ -1,0 +1,48 @@
+.nx-theme-form .nx-panel-header {
+    background-image: url('https://nicomartineu.github.io/Stylesheets/NintexBanner.jpg');
+    background-size: cover;
+    background-position-y: -50px;
+    height: 100px;
+    --ntx-form-theme-color-secondary: #FFF8F4;
+    --ntx-form-theme-border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.nx-theme-form .nx-group-control-container .nx-group-control-header {
+padding: 0;
+}
+
+.nx-theme-form .nx-group-control-container .nx-group-control-header ntx-richtext-label .nx-theme-richtext {
+    margin-bottom: 9px;
+    padding-top: 9px;
+    font-size: xx-large !important;
+    padding-left: 16px;
+}
+
+.nx-theme-form .nx-theme-styles input.nx-theme-input-1 {
+    background: var(--ntx-form-theme-color-input-background);
+    border-color: var(--ntx-form-theme-color-border);
+    caret-color: var(--ntx-form-theme-color-input-text);
+    color: var(--ntx-form-theme-color-input-text);
+    font-family: var(--ntx-form-theme-font-family);
+    font-size: var(--ntx-form-theme-text-input-size);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: unset;
+}
+
+.nx-theme-form .nx-theme-styles textarea.nx-theme-input-1 {
+    background: var(--ntx-form-theme-color-input-background);
+    border-color: var(--ntx-form-theme-color-border);
+    caret-color: var(--ntx-form-theme-color-input-text);
+    color: var(--ntx-form-theme-color-input-text);
+    font-family: var(--ntx-form-theme-font-family);
+    font-size: var(--ntx-form-theme-text-input-size);
+    border-radius: var(--ntx-form-theme-border-radius);
+}
+
+.nx-theme-form .nx-theme-styles .nx-group-control-container {
+    background-color: var(--ntx-form-theme-color-form-background);
+    border-radius: 16px 16px var(--ntx-form-theme-border-radius) var(--ntx-form-theme-border-radius);
+}
