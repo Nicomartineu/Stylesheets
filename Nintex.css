@@ -18,3 +18,17 @@ padding: 0;
     font-size: xx-large !important;
     padding-left: 16px;
 }
+
+.nx-theme-form [dir] .nx-theme-styles div.nx-theme-input-1, [dir] .nx-theme-styles input.nx-theme-input-1, [dir] .nx-theme-styles select.nx-theme-input-1, [dir] .nx-theme-styles textarea.nx-theme-input-1 {
+    background: var(--ntx-form-theme-color-input-background);
+    border-color: var(--ntx-form-theme-color-border);
+    border-radius: var(--ntx-form-theme-border-radius);
+    caret-color: var(--ntx-form-theme-color-input-text);
+    color: var(--ntx-form-theme-color-input-text);
+    font-family: var(--ntx-form-theme-font-family);
+    font-size: var(--ntx-form-theme-text-input-size);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: unset;
+}
