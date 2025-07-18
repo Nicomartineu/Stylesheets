@@ -6,6 +6,12 @@
     --ntx-form-theme-color-secondary: #FFF8F4;
 }
 
-.nx-group-control-container .nx-group-control-header {
+.nx-theme-form .nx-group-control-container .nx-group-control-header {
 padding: 0;
+}
+
+.nx-theme-form .nx-group-control-container .nx-group-control-header ntx-richtext-label .nx-theme-richtext {
+    margin-bottom: 9px;
+    padding-top: 9px;
+    font-size: 36pt !important;
 }
