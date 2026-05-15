@@ -1,7 +1,50 @@
-/* ============================================
-   K2 SmartForms List View -> Cards (Mobile)
+/* ==========================================================
+   GLOBAL: Make the entire form’s text blue
+   (kept conservative to avoid breaking icons / SVG fills)
+   ========================================================== */
+
+.theme-entry{
+  --global-text-color: #0b63ce; /* pick your blue */
+  color: var(--global-text-color);
+}
+
+/* Common SmartForms text-bearing elements should inherit the blue */
+.theme-entry,
+.theme-entry .SFC,
+.theme-entry .runtime-list-item,
+.theme-entry .grid,
+.theme-entry .view,
+.theme-entry .panel,
+.theme-entry .panel-header-text,
+.theme-entry .form,
+.theme-entry .form-header,
+.theme-entry .form-footer,
+.theme-entry label,
+.theme-entry .label,
+.theme-entry .text,
+.theme-entry input,
+.theme-entry select,
+.theme-entry textarea,
+.theme-entry .input-control,
+.theme-entry .input-control *{
+  color: var(--global-text-color);
+}
+
+/* Keep hyperlinks looking like hyperlinks (optional) */
+.theme-entry a{
+  color: #0a58ca;
+}
+
+/* Don’t accidentally recolor SVG icons that rely on fill/stroke variables */
+.theme-entry svg,
+.theme-entry svg *{
+  color: inherit; /* no-op for most svg, but avoids some odd inheritance */
+}
+
+/* ==========================================================
+   LIST VIEW -> CARDS (Mobile)
    Scoped to: name="viewDemoMobileList"
-   ============================================ */
+   ========================================================== */
 
 .theme-entry div.grid[name="viewDemoMobileList"]{
   --card-bg: #ffffff;
@@ -11,28 +54,29 @@
   --card-shadow-hover: 0 6px 18px rgba(0,0,0,.12);
   --card-pad: 14px;
   --row-gap: 12px;
-  --label-color: #6b7280;
-  --value-color: #111827;
+
+  --label-color: rgba(11, 99, 206, .75); /* label blue-muted */
+  --value-color: var(--global-text-color); /* values use your global blue */
+  --heading-color: #083f88; /* slightly deeper blue for heading */
 }
 
-/* 1) Hide the column header row for card mode (usually redundant on mobile) */
+/* Hide column headers on mobile card layout */
 @media (max-width: 900px){
   .theme-entry div.grid[name="viewDemoMobileList"] .grid-column-headers{
     display: none !important;
   }
 }
 
-/* 2) Remove zebra striping background (we’ll use cards instead) */
+/* Remove zebra backgrounds (cards will define their own background) */
 .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table.zebra-stripes,
 .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table.zebra-stripes tr,
 .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table.zebra-stripes td{
   background: transparent !important;
 }
 
-/* 3) Convert table layout into block cards (safe at mobile widths) */
+/* Convert the table into card blocks on mobile */
 @media (max-width: 900px){
 
-  /* allow rows to stack vertically */
   .theme-entry div.grid[name="viewDemoMobileList"] .grid-body-content-wrapper,
   .theme-entry div.grid[name="viewDemoMobileList"] .scroll-wrapper{
     overflow: visible !important;
@@ -50,7 +94,7 @@
     width: 100%;
   }
 
-  /* each TR becomes a card */
+  /* Each TR becomes a card */
   .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr{
     display: block;
     margin: 0 0 var(--row-gap) 0;
@@ -65,45 +109,127 @@
     box-shadow: var(--card-shadow-hover);
   }
 
-  /* 4) Each TD becomes a “label/value” line */
+  /* ----------------------------------------------------------
+     CARD HEADING: FirstName + " " + LastName
+     We will display col #2 and col #3 as a single heading line.
+     ---------------------------------------------------------- */
+
+  /* Make all TDs stack (we’ll re-style the heading cells separately) */
   .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td{
+    display: block;
+    border: 0 !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Heading line container: First Name cell (#2) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(2){
+    display: inline;
+  }
+
+  /* Last Name cell (#3) right after First Name */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3){
+    display: inline;
+  }
+
+  /* Remove label pseudo-elements from heading cells (we don’t want "First Name:" etc.) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(2)::before,
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3)::before{
+    content: none !important;
+  }
+
+  /* Style the heading text (spans are inside .runtime-list-item) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(2) .runtime-list-item,
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3) .runtime-list-item{
+    display: inline;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--heading-color);
+    line-height: 1.2;
+  }
+
+  /* Add a literal space after First Name */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(2) .runtime-list-item::after{
+    content: " ";
+  }
+
+  /* Add spacing below the heading line */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3){
+    margin-bottom: 10px;
+  }
+  /* Because td is inline, we create spacing using a block separator after last name */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3)::after{
+    content: "";
+    display: block;
+    height: 10px;
+  }
+
+  /* ----------------------------------------------------------
+     DETAILS LINES: ID, Phone, Email as label/value rows
+     We'll show: label on left, value on right (or stacked)
+     ---------------------------------------------------------- */
+
+  /* We will style the remaining cells (1,4,5) as “label/value” rows */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(1),
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(4),
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5){
     display: grid;
     grid-template-columns: minmax(120px, 40%) 1fr;
     gap: 10px;
-    padding: 6px 0;
-    border: 0 !important;
-    vertical-align: top;
+    padding: 8px 0;
+    align-items: start;
   }
 
-  /* subtle dividers inside a card */
-  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td + td{
+  /* Divider between detail rows */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(4),
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5){
     border-top: 1px dashed rgba(229,231,235,.9) !important;
-    padding-top: 10px;
-    margin-top: 4px;
   }
 
-  /* 5) Labels: inferred from column order (since TD does not carry header text) */
-  /* ID (col 1) */
+  /* Labels via nth-child mapping */
   .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(1)::before{
     content: "ID";
   }
-  /* First Name (col 2) */
-  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(2)::before{
-    content: "First Name";
-  }
-  /* Last Name (col 3) */
-  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3)::before{
-    content: "Last Name";
-  }
-  /* Phone Number (col 4) */
   .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(4)::before{
     content: "Phone Number";
   }
-  /* Email Address (col 5) */
   .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5)::before{
     content: "Email Address";
   }
 
-  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td::before{
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(1)::before,
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(4)::before,
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5)::before{
     font-weight: 600;
+    color: var(--label-color);
+    font-size: .78rem;
+    line-height: 1.1;
+  }
 
+  /* Values */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table .grid-content-cell-wrapper,
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table .runtime-list-item{
+    color: var(--value-color);
+    font-size: .95rem;
+    line-height: 1.25;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  /* Make emails wrap nicely */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5) .runtime-list-item{
+    word-break: break-word;
+  }
+
+  /* On very narrow devices: stack label above value */
+  @media (max-width: 520px){
+    .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(1),
+    .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(4),
+    .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5){
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Desktop remains unchanged (keeps standard grid rows) */
