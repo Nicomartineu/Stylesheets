@@ -1,70 +1,109 @@
-/* =========================
-   LIST VIEW → CARD LAYOUT
-   ========================= */
+/* ============================================
+   K2 SmartForms List View -> Cards (Mobile)
+   Scoped to: name="viewDemoMobileList"
+   ============================================ */
 
-/* 1. Make the List View behave like a vertical list */
-.theme-entry .grid-body .grid-table {
+.theme-entry div.grid[name="viewDemoMobileList"]{
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --card-radius: 12px;
+  --card-shadow: 0 2px 10px rgba(0,0,0,.08);
+  --card-shadow-hover: 0 6px 18px rgba(0,0,0,.12);
+  --card-pad: 14px;
+  --row-gap: 12px;
+  --label-color: #6b7280;
+  --value-color: #111827;
+}
+
+/* 1) Hide the column header row for card mode (usually redundant on mobile) */
+@media (max-width: 900px){
+  .theme-entry div.grid[name="viewDemoMobileList"] .grid-column-headers{
+    display: none !important;
+  }
+}
+
+/* 2) Remove zebra striping background (we’ll use cards instead) */
+.theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table.zebra-stripes,
+.theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table.zebra-stripes tr,
+.theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table.zebra-stripes td{
+  background: transparent !important;
+}
+
+/* 3) Convert table layout into block cards (safe at mobile widths) */
+@media (max-width: 900px){
+
+  /* allow rows to stack vertically */
+  .theme-entry div.grid[name="viewDemoMobileList"] .grid-body-content-wrapper,
+  .theme-entry div.grid[name="viewDemoMobileList"] .scroll-wrapper{
+    overflow: visible !important;
+  }
+
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table{
     display: block;
     width: 100%;
-    border: none;
-}
+    border-collapse: separate;
+    border-spacing: 0;
+  }
 
-/* Remove header row on mobile/card layout */
-.theme-entry .grid-body .grid-header {
-    display: none;
-}
-
-/* 2. Each row becomes a card */
-.theme-entry .grid-body .grid-table tr {
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody{
     display: block;
-    background: #ffffff;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    border: 1px solid #e5e7eb;
-}
+    width: 100%;
+  }
 
-/* Hover effect (optional but nice for desktop) */
-.theme-entry .grid-body .grid-table tr:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
+  /* each TR becomes a card */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr{
+    display: block;
+    margin: 0 0 var(--row-gap) 0;
+    padding: var(--card-pad);
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+  }
 
-/* 3. Each cell becomes a row inside the card */
-.theme-entry .grid-body .grid-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.4rem 0;
-    border: none;
-}
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr:hover{
+    box-shadow: var(--card-shadow-hover);
+  }
 
-/* 4. Label (left side) */
-.theme-entry .grid-body .grid-table td::before {
-    content: attr(data-columnname);
+  /* 4) Each TD becomes a “label/value” line */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td{
+    display: grid;
+    grid-template-columns: minmax(120px, 40%) 1fr;
+    gap: 10px;
+    padding: 6px 0;
+    border: 0 !important;
+    vertical-align: top;
+  }
+
+  /* subtle dividers inside a card */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td + td{
+    border-top: 1px dashed rgba(229,231,235,.9) !important;
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+
+  /* 5) Labels: inferred from column order (since TD does not carry header text) */
+  /* ID (col 1) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(1)::before{
+    content: "ID";
+  }
+  /* First Name (col 2) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(2)::before{
+    content: "First Name";
+  }
+  /* Last Name (col 3) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(3)::before{
+    content: "Last Name";
+  }
+  /* Phone Number (col 4) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(4)::before{
+    content: "Phone Number";
+  }
+  /* Email Address (col 5) */
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td:nth-child(5)::before{
+    content: "Email Address";
+  }
+
+  .theme-entry div.grid[name="viewDemoMobileList"] table.grid-content-table tbody > tr > td::before{
     font-weight: 600;
-    color: #6b7280;
-    margin-right: 1rem;
-}
 
-/* 5. Value (right side) */
-.theme-entry .grid-body .grid-table td {
-    font-size: 0.95rem;
-    color: #111827;
-}
-
-/* =========================
-   MOBILE OPTIMIZATION
-   ========================= */
-
-@media screen and (max-width: 768px) {
-
-    .theme-entry .grid-body .grid-table td {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .theme-entry .grid-body .grid-table td::before {
-        margin-bottom: 0.2rem;
-        font-size: 0.75rem;
-    }
-}
