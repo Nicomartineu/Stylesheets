@@ -1,0 +1,70 @@
+/* =========================
+   LIST VIEW → CARD LAYOUT
+   ========================= */
+
+/* 1. Make the List View behave like a vertical list */
+.theme-entry .grid-body .grid-table {
+    display: block;
+    width: 100%;
+    border: none;
+}
+
+/* Remove header row on mobile/card layout */
+.theme-entry .grid-body .grid-header {
+    display: none;
+}
+
+/* 2. Each row becomes a card */
+.theme-entry .grid-body .grid-table tr {
+    display: block;
+    background: #ffffff;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+
+/* Hover effect (optional but nice for desktop) */
+.theme-entry .grid-body .grid-table tr:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* 3. Each cell becomes a row inside the card */
+.theme-entry .grid-body .grid-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border: none;
+}
+
+/* 4. Label (left side) */
+.theme-entry .grid-body .grid-table td::before {
+    content: attr(data-columnname);
+    font-weight: 600;
+    color: #6b7280;
+    margin-right: 1rem;
+}
+
+/* 5. Value (right side) */
+.theme-entry .grid-body .grid-table td {
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+   ========================= */
+
+@media screen and (max-width: 768px) {
+
+    .theme-entry .grid-body .grid-table td {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .theme-entry .grid-body .grid-table td::before {
+        margin-bottom: 0.2rem;
+        font-size: 0.75rem;
+    }
+}
