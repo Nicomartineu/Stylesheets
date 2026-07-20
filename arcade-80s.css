@@ -87,3 +87,178 @@ html:not(.designer) .runtime-content::before {
 
     font-weight: bold;
 
+/* =================================================
+   K2 ARCADE v3.5
+   Bring back the 80s!
+================================================= */
+
+
+/* -----------------------------------------------
+   SECTION FRAMES
+----------------------------------------------- */
+
+html:not(.designer) fieldset {
+
+    background: rgba(0,0,0,.72) !important;
+
+    border: 5px solid #d62c2c !important;
+
+    box-shadow:
+        0 0 0 3px #000,
+        0 0 0 6px #1b5ca8,
+        8px 8px 0 #000 !important;
+
+    padding: 18px !important;
+
+    margin-bottom: 24px !important;
+}
+
+
+/* -----------------------------------------------
+   INPUTS
+----------------------------------------------- */
+
+html:not(.designer) input[type=text],
+html:not(.designer) input[type=password],
+html:not(.designer) textarea,
+html:not(.designer) select {
+
+    background: #060913 !important;
+
+    color: #fff7d6 !important;
+
+    border: 3px solid #ffcc33 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow:
+        inset 3px 3px 0 #000,
+        3px 3px 0 #000 !important;
+
+    text-shadow:
+        1px 1px 0 #000;
+}
+
+
+/* -----------------------------------------------
+   INPUT FOCUS
+----------------------------------------------- */
+
+html:not(.designer) input:focus,
+html:not(.designer) textarea:focus,
+html:not(.designer) select:focus {
+
+    border-color: #33e5ff !important;
+
+    box-shadow:
+        inset 3px 3px 0 #000,
+        0 0 0 3px #ff4fd8,
+        4px 4px 0 #000 !important;
+
+    outline: none !important;
+}
+
+
+/* -----------------------------------------------
+   BUTTONS
+----------------------------------------------- */
+
+html:not(.designer) button,
+html:not(.designer) input[type=button],
+html:not(.designer) input[type=submit] {
+
+    background: #d62c2c !important;
+
+    color: #ffcc33 !important;
+
+    border: 4px solid #000 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow:
+
+        inset -3px -3px 0 #780813,
+
+        inset 3px 3px 0 #ff6d5d,
+
+        6px 6px 0 #000 !important;
+
+    text-shadow:
+        2px 2px 0 #000;
+
+    letter-spacing: 1px;
+}
+
+
+html:not(.designer) button:hover,
+html:not(.designer) input[type=button]:hover,
+html:not(.designer) input[type=submit]:hover {
+
+    transform: translate(-2px,-2px);
+
+    box-shadow:
+
+        inset -3px -3px 0 #780813,
+
+        inset 3px 3px 0 #ff6d5d,
+
+        8px 8px 0 #000 !important;
+}
+
+
+html:not(.designer) button:active,
+html:not(.designer) input[type=button]:active,
+html:not(.designer) input[type=submit]:active {
+
+    transform: translate(3px,3px);
+
+    box-shadow:
+        inset 3px 3px 0 #000 !important;
+}
+
+
+/* -----------------------------------------------
+   LABELS
+----------------------------------------------- */
+
+html:not(.designer) label {
+
+    color: #33e5ff !important;
+
+    text-shadow:
+        1px 1px 0 #000,
+        0 0 4px #33e5ff;
+}
+
+
+/* -----------------------------------------------
+   HEADINGS
+----------------------------------------------- */
+
+html:not(.designer) h1,
+html:not(.designer) h2,
+html:not(.designer) h3,
+html:not(.designer) .panel-title {
+
+    color: #ffcc33 !important;
+
+    text-shadow:
+        3px 3px 0 #000,
+        0 0 10px #ff8f1f;
+
+    letter-spacing: 2px;
+}
+
+
+/* -----------------------------------------------
+   BONUS ARCADE GLOW
+----------------------------------------------- */
+
+html:not(.designer) fieldset:hover {
+
+    box-shadow:
+        0 0 0 3px #000,
+        0 0 0 6px #1b5ca8,
+        0 0 18px rgba(255,204,51,.45),
+        8px 8px 0 #000 !important;
+}
