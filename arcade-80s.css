@@ -351,3 +351,23 @@ html:not(.designer) legend {
         3px 3px 0 #000,
         0 0 12px #ff8f1f !important;
 }
+
+/* ==========================================
+   DONKEY KONG PANEL OVERRIDE
+========================================== */
+
+html:not(.designer) div.visible.panel {
+
+    background: rgba(0,0,0,.72) !important;
+
+    border: 5px solid #d62c2c !important;
+
+    box-shadow:
+        0 0 0 3px #000,
+        0 0 0 6px #1b5ca8,
+        8px 8px 0 #000 !important;
+
+    padding: 12px !important;
+
+    margin-bottom: 16px !important;
+}
