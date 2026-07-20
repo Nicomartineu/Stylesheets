@@ -1,268 +1,411 @@
-
 /*
-K2 Arcade 80s - experimental Style Profile CSS
-Theme intent: make SmartForms feel like a classic 1980s platform arcade cabinet.
-Generated for Nicolas Martin, using the currently opened sample form: Product Development Platform.
+====================================================
+K2 ARCADE 80s v2
+Designer-safe edition
 
-Install idea:
-1. Upload this CSS and the /images folder alongside your K2 Style Profile assets.
-2. Adjust --k2-arcade-assets-path only if your asset folder is not next to this CSS.
-3. Add class names such as arcade-hud, arcade-panel, arcade-score, arcade-danger, arcade-complete to specific K2 controls/views where you want stronger effects.
+Scope:
+html:not(.designer) .runtime-content
 
-Important: K2 SmartForms DOM/classes vary by version and theme. This stylesheet intentionally targets common K2/runtime selectors plus generic form elements. Treat this as Iteration 1.
+This version should NOT affect the K2 Designer UI.
+====================================================
 */
 
 :root {
-  --k2-arcade-bg: #02040e;
-  --k2-arcade-panel: rgba(5, 7, 24, 0.94);
-  --k2-arcade-red: #e2232a;
-  --k2-arcade-red-dark: #780813;
-  --k2-arcade-yellow: #ffc627;
-  --k2-arcade-orange: #ff8f1f;
-  --k2-arcade-blue: #125ea4;
-  --k2-arcade-cyan: #2df7ff;
-  --k2-arcade-green: #34ff6a;
-  --k2-arcade-pink: #ff4fd8;
-  --k2-arcade-white: #fff7d6;
-  --k2-arcade-danger: #ff3048;
-  --k2-arcade-shadow: #000000;
-  --k2-arcade-font-display: "Press Start 2P", "Pixel Emulator", "Courier New", monospace;
-  --k2-arcade-font-body: "Courier New", monospace;
-  --k2-arcade-assets-path: "images";
+    --arcade-bg: #02040e;
+    --arcade-panel: rgba(5,7,24,.95);
+
+    --arcade-red: #e2232a;
+    --arcade-red-dark: #780813;
+
+    --arcade-yellow: #ffc627;
+    --arcade-orange: #ff8f1f;
+
+    --arcade-blue: #125ea4;
+    --arcade-cyan: #2df7ff;
+
+    --arcade-green: #34ff6a;
+    --arcade-pink: #ff4fd8;
+
+    --arcade-white: #fff7d6;
 }
 
-html,
-body,
-.theme-entry,
-.runtime-content,
-form {
-  background-color: var(--k2-arcade-bg) !important;
-  background-image:
-    url("images/arcade_scanlines.png"),
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("images/arcade_background_tile.png") !important;
-  background-repeat: repeat, repeat, repeat !important;
-  color: var(--k2-arcade-white) !important;
-  font-family: var(--k2-arcade-font-body) !important;
-  image-rendering: pixelated;
+
+/* ==================================================
+   ROOT CONTAINER
+================================================== */
+
+html:not(.designer) .runtime-content {
+
+    background-color: var(--arcade-bg) !important;
+
+    background-image:
+        url("images/arcade_scanlines.png"),
+        linear-gradient(
+            rgba(0,0,0,.4),
+            rgba(0,0,0,.4)
+        ),
+        url("images/arcade_background_tile.png") !important;
+
+    background-repeat:
+        repeat,
+        repeat,
+        repeat !important;
+
+    color: var(--arcade-white) !important;
+
+    font-family:
+        "Courier New",
+        monospace !important;
+
+    image-rendering: pixelated;
 }
 
-body::after,
-.theme-entry::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 999999;
-  background:
-    radial-gradient(circle at center, transparent 58%, rgba(0,0,0,.38) 100%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 4px);
-  mix-blend-mode: screen;
+
+/* ==================================================
+   CRT EFFECT
+================================================== */
+
+html:not(.designer) .runtime-content::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            transparent 55%,
+            rgba(0,0,0,.45) 100%
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.03) 0px,
+            rgba(255,255,255,.03) 1px,
+            transparent 1px,
+            transparent 4px
+        );
 }
 
-/* ARCADE HUD - add .arcade-hud to a top view/table/panel, or let this create a global header. */
-.theme-entry .runtime-content::before,
-.arcade-hud::before {
-  content: "SCORE 0001982   PLAYER 1   LIVES ♥ ♥ ♥   LEVEL: PRODUCT DEV";
-  display: block;
-  margin: 0 0 18px 0;
-  padding: 14px 18px 12px;
-  color: var(--k2-arcade-yellow);
-  font-family: var(--k2-arcade-font-display) !important;
-  font-size: 13px;
-  line-height: 1.7;
-  letter-spacing: 1px;
-  text-shadow: 3px 3px 0 #000, 0 0 8px var(--k2-arcade-orange);
-  background: var(--k2-arcade-panel);
-  border: 6px solid var(--k2-arcade-red);
-  box-shadow: 0 0 0 4px #000, 0 0 0 8px var(--k2-arcade-yellow), 10px 10px 0 #000;
+
+/* ==================================================
+   HUD
+================================================== */
+
+html:not(.designer) .runtime-content::before {
+
+    content:
+    "PLAYER 1    SCORE 0001982    LIVES ♥ ♥ ♥";
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    padding: 16px;
+
+    color: var(--arcade-yellow);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-family:
+        "Press Start 2P",
+        "Courier New",
+        monospace;
+
+    background: rgba(0,0,0,.80);
+
+    border: 6px solid var(--arcade-red);
+
+    box-shadow:
+        0 0 0 4px black,
+        0 0 0 8px var(--arcade-yellow);
+
+    text-shadow:
+        3px 3px 0 black,
+        0 0 8px var(--arcade-orange);
 }
 
-/* Form title / main headings */
-.theme-entry h1,
-.theme-entry h2,
-.theme-entry h3,
-.form-title,
-.view-title,
-.panel-title,
-.SFC .title,
-[name*='Title'],
-.arcade-title {
-  color: var(--k2-arcade-yellow) !important;
-  font-family: var(--k2-arcade-font-display) !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 4px 4px 0 #000, 0 0 8px var(--k2-arcade-orange);
+
+/* ==================================================
+   HEADINGS
+================================================== */
+
+html:not(.designer) .runtime-content h1,
+html:not(.designer) .runtime-content h2,
+html:not(.designer) .runtime-content h3,
+html:not(.designer) .runtime-content .panel-title {
+
+    color: var(--arcade-yellow) !important;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        4px 4px 0 black,
+        0 0 8px var(--arcade-orange);
 }
 
-/* Sections / K2 views / panels */
-.theme-entry .view,
-.theme-entry .panel,
-.theme-entry .SFC,
-.theme-entry fieldset,
-.theme-entry table.SourceCode-Forms-Controls-Web-Table,
-.arcade-panel {
-  background: var(--k2-arcade-panel) !important;
-  border: 5px solid var(--k2-arcade-red) !important;
-  box-shadow: 0 0 0 4px #000, 0 0 0 8px var(--k2-arcade-blue), 9px 9px 0 #000 !important;
-  padding: 18px !important;
-  margin-bottom: 20px !important;
+
+/* ==================================================
+   PANELS
+================================================== */
+
+html:not(.designer) .runtime-content .panel,
+html:not(.designer) .runtime-content fieldset,
+html:not(.designer) .runtime-content .view {
+
+    background:
+        var(--arcade-panel) !important;
+
+    border:
+        5px solid var(--arcade-red) !important;
+
+    padding:
+        20px !important;
+
+    margin-bottom:
+        20px !important;
+
+    box-shadow:
+        0 0 0 4px black,
+        0 0 0 8px var(--arcade-blue),
+        8px 8px 0 black;
 }
 
-.theme-entry .panel::before,
-.theme-entry .view::before,
-.arcade-panel::before {
-  content: "";
-  display: block;
-  height: 18px;
-  margin: -18px -18px 16px -18px;
-  background-image: url("images/arcade_girder_divider.png");
-  background-size: auto 100%;
-  background-repeat: repeat-x;
+
+/* ==================================================
+   LABELS
+================================================== */
+
+html:not(.designer) .runtime-content label {
+
+    color:
+        var(--arcade-cyan) !important;
+
+    text-transform:
+        uppercase;
+
+    font-weight:
+        bold;
+
+    text-shadow:
+        2px 2px 0 black;
 }
 
-/* Labels */
-.theme-entry label,
-.theme-entry .label,
-.theme-entry .editor-label,
-.theme-entry td:first-child,
-.arcade-label {
-  color: var(--k2-arcade-cyan) !important;
-  font-weight: bold !important;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 #000;
+
+/* ==================================================
+   INPUTS
+================================================== */
+
+html:not(.designer) .runtime-content input,
+html:not(.designer) .runtime-content textarea,
+html:not(.designer) .runtime-content select {
+
+    background:
+        #050816 !important;
+
+    color:
+        var(--arcade-white) !important;
+
+    border:
+        4px solid var(--arcade-yellow) !important;
+
+    box-shadow:
+        inset 4px 4px 0 black,
+        4px 4px 0 black !important;
+
+    border-radius:
+        0 !important;
+
+    font-family:
+        "Courier New",
+        monospace !important;
 }
 
-/* Inputs */
-.theme-entry input[type="text"],
-.theme-entry input[type="password"],
-.theme-entry input[type="search"],
-.theme-entry input[type="number"],
-.theme-entry textarea,
-.theme-entry select,
-.theme-entry .input-control,
-.theme-entry .picker-input,
-.theme-entry .dropdown-box {
-  background: #050816 !important;
-  color: var(--k2-arcade-white) !important;
-  border: 4px solid var(--k2-arcade-yellow) !important;
-  border-radius: 0 !important;
-  box-shadow: inset 4px 4px 0 #000, 4px 4px 0 #000 !important;
-  font-family: var(--k2-arcade-font-body) !important;
-  min-height: 32px;
+
+/* ==================================================
+   FOCUS
+================================================== */
+
+html:not(.designer) .runtime-content input:focus,
+html:not(.designer) .runtime-content textarea:focus,
+html:not(.designer) .runtime-content select:focus {
+
+    border-color:
+        var(--arcade-cyan) !important;
+
+    box-shadow:
+        inset 4px 4px 0 black,
+        0 0 0 4px var(--arcade-pink),
+        4px 4px 0 black !important;
+
+    outline: none !important;
 }
 
-.theme-entry input:focus,
-.theme-entry textarea:focus,
-.theme-entry select:focus {
-  outline: none !important;
-  border-color: var(--k2-arcade-cyan) !important;
-  box-shadow: inset 4px 4px 0 #000, 0 0 0 4px var(--k2-arcade-pink), 4px 4px 0 #000 !important;
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+html:not(.designer) .runtime-content button,
+html:not(.designer) .runtime-content input[type=button],
+html:not(.designer) .runtime-content input[type=submit] {
+
+    background:
+        var(--arcade-red) !important;
+
+    color:
+        var(--arcade-yellow) !important;
+
+    border:
+        4px solid #000 !important;
+
+    border-radius:
+        0 !important;
+
+    padding:
+        12px 18px !important;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    box-shadow:
+
+        inset -4px -4px 0 var(--arcade-red-dark),
+
+        inset 4px 4px 0 #ff6a55,
+
+        6px 6px 0 black !important;
 }
 
-/* Buttons */
-.theme-entry button,
-.theme-entry input[type="button"],
-.theme-entry input[type="submit"],
-.theme-entry .button,
-.theme-entry a.button,
-.SourceCode-Forms-Controls-Web-Button,
-.arcade-button {
-  background: var(--k2-arcade-red) !important;
-  color: var(--k2-arcade-yellow) !important;
-  border: 4px solid #000 !important;
-  border-radius: 0 !important;
-  box-shadow: inset -4px -4px 0 var(--k2-arcade-red-dark), inset 4px 4px 0 #ff6a55, 6px 6px 0 #000 !important;
-  font-family: var(--k2-arcade-font-display) !important;
-  font-size: 11px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px;
-  min-height: 42px;
-  padding: 12px 18px !important;
-  cursor: pointer;
+
+html:not(.designer) .runtime-content button:hover,
+html:not(.designer) .runtime-content input[type=button]:hover,
+html:not(.designer) .runtime-content input[type=submit]:hover {
+
+    transform:
+        translate(-2px,-2px);
+
+    filter:
+        brightness(1.2);
 }
 
-.theme-entry button:hover,
-.theme-entry input[type="button"]:hover,
-.theme-entry input[type="submit"]:hover,
-.theme-entry .button:hover,
-.arcade-button:hover {
-  transform: translate(-2px, -2px);
-  filter: brightness(1.25) saturate(1.2);
-  box-shadow: inset -4px -4px 0 var(--k2-arcade-red-dark), inset 4px 4px 0 #ff6a55, 9px 9px 0 #000 !important;
+
+html:not(.designer) .runtime-content button:active,
+html:not(.designer) .runtime-content input[type=button]:active,
+html:not(.designer) .runtime-content input[type=submit]:active {
+
+    transform:
+        translate(4px,4px);
 }
 
-.theme-entry button:active,
-.theme-entry input[type="button"]:active,
-.theme-entry input[type="submit"]:active,
-.theme-entry .button:active,
-.arcade-button:active {
-  transform: translate(4px, 4px);
-  box-shadow: inset 4px 4px 0 #000 !important;
+
+/* ==================================================
+   TABS
+================================================== */
+
+html:not(.designer) .runtime-content .tab,
+html:not(.designer) .runtime-content .tab-item {
+
+    background:
+        #02040e !important;
+
+    color:
+        var(--arcade-yellow) !important;
+
+    border:
+        3px solid var(--arcade-blue) !important;
+
+    text-transform:
+        uppercase;
 }
 
-/* Tabs become arcade level selectors */
-.theme-entry .tab,
-.theme-entry .tab-box,
-.theme-entry .tab-item,
-.theme-entry .tab a {
-  background: #02040e !important;
-  color: var(--k2-arcade-yellow) !important;
-  border: 3px solid var(--k2-arcade-blue) !important;
-  border-radius: 0 !important;
-  font-family: var(--k2-arcade-font-display) !important;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 #000;
-}
-.theme-entry .tab.selected,
-.theme-entry .tab.active,
-.theme-entry .tab-item.selected,
-.theme-entry .tab a.selected {
-  background: var(--k2-arcade-red) !important;
-  color: var(--k2-arcade-white) !important;
-  border-color: var(--k2-arcade-yellow) !important;
+
+html:not(.designer) .runtime-content .tab.selected,
+html:not(.designer) .runtime-content .tab.active {
+
+    background:
+        var(--arcade-red) !important;
+
+    border-color:
+        var(--arcade-yellow) !important;
 }
 
-/* Tables / grids */
-.theme-entry table,
-.theme-entry .grid,
-.theme-entry .SourceCode-Forms-Controls-Web-DataGrid {
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
-  background: rgba(0,0,0,.55) !important;
-  color: var(--k2-arcade-white) !important;
-}
-.theme-entry th,
-.theme-entry .grid-header,
-.theme-entry .header {
-  background: var(--k2-arcade-blue) !important;
-  color: var(--k2-arcade-yellow) !important;
-  font-family: var(--k2-arcade-font-display) !important;
-  font-size: 10px;
-  text-transform: uppercase;
-  border-bottom: 4px solid #000 !important;
-}
-.theme-entry td,
-.theme-entry .grid-cell {
-  border-bottom: 2px solid rgba(255,198,39,.35) !important;
+
+/* ==================================================
+   GRIDS
+================================================== */
+
+html:not(.designer) .runtime-content table {
+
+    background:
+        rgba(0,0,0,.60) !important;
+
+    color:
+        var(--arcade-white) !important;
 }
 
-/* Status helpers */
-.arcade-score { color: var(--k2-arcade-yellow) !important; text-shadow: 3px 3px 0 #000; font-family: var(--k2-arcade-font-display) !important; }
-.arcade-complete { color: var(--k2-arcade-green) !important; text-shadow: 0 0 8px var(--k2-arcade-green), 3px 3px 0 #000; }
-.arcade-danger, .arcade-game-over { color: var(--k2-arcade-danger) !important; animation: arcade-blink .75s steps(2,end) infinite; }
-.arcade-bonus { color: var(--k2-arcade-pink) !important; }
 
-@keyframes arcade-blink { 50% { opacity: .25; } }
+html:not(.designer) .runtime-content th {
 
-/* Optional: tiny life icons if you place elements with these classes */
-.arcade-life::before { content: ""; display: inline-block; width: 22px; height: 22px; background: url("images/icon_heart.png") center/contain no-repeat; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
-.arcade-coin::before { content: ""; display: inline-block; width: 22px; height: 22px; background: url("images/icon_coin.png") center/contain no-repeat; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
-.arcade-complete::before { content: ""; display: inline-block; width: 22px; height: 22px; background: url("images/icon_flag.png") center/contain no-repeat; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
+    background:
+        var(--arcade-blue) !important;
 
-/* Brutally anti-modern: removes smooth SaaS curves wherever possible. */
-.theme-entry *,
-.theme-entry *::before,
-.theme-entry *::after {
-  border-radius: 0 !important;
+    color:
+        var(--arcade-yellow) !important;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* ==================================================
+   BONUS CLASSES
+================================================== */
+
+.arcade-complete {
+
+    color:
+        #34ff6a !important;
+
+    text-shadow:
+        0 0 10px #34ff6a;
+}
+
+
+.arcade-game-over {
+
+    color:
+        #ff3048 !important;
+
+    animation:
+        arcadeBlink .7s infinite;
+}
+
+
+.arcade-bonus {
+
+    color:
+        #ff4fd8 !important;
+}
+
+
+@keyframes arcadeBlink {
+
+    50% {
+        opacity: .30;
+    }
 }
