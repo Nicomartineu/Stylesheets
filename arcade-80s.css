@@ -34,7 +34,7 @@ This version should NOT affect the K2 Designer UI.
    ROOT CONTAINER
 ================================================== */
 
-html:not(.designer) .runtime-content {
+html:not(.designer) body.theme-entry {
 
     background-color: var(--arcade-bg) !important;
 
