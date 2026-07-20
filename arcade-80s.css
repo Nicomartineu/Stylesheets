@@ -262,3 +262,92 @@ html:not(.designer) fieldset:hover {
         0 0 18px rgba(255,204,51,.45),
         8px 8px 0 #000 !important;
 }
+
+/* =================================================
+   ARCADE OVERRIDE PACK
+   Targets K2 wrappers, not just HTML controls
+================================================= */
+
+/* PANELS / VIEWS */
+
+html:not(.designer) .view,
+html:not(.designer) .panel,
+html:not(.designer) .SFC,
+html:not(.designer) .SourceCode-Forms-Controls-Web-Table {
+
+    background: rgba(0,0,0,.70) !important;
+
+    border: 5px solid #d62c2c !important;
+
+    box-shadow:
+        0 0 0 3px #000,
+        0 0 0 6px #1b5ca8,
+        8px 8px 0 #000 !important;
+}
+
+
+/* INPUT WRAPPERS */
+
+html:not(.designer) .input-control,
+html:not(.designer) .text-input,
+html:not(.designer) .picker-input,
+html:not(.designer) .dropdown-box,
+html:not(.designer) .editor-cell {
+
+    border: 3px solid #ffcc33 !important;
+
+    background: #060913 !important;
+
+    box-shadow:
+        inset 3px 3px 0 #000,
+        3px 3px 0 #000 !important;
+}
+
+
+/* ACTUAL INPUT ELEMENTS */
+
+html:not(.designer) input,
+html:not(.designer) textarea,
+html:not(.designer) select {
+
+    border: none !important;
+
+    background: transparent !important;
+
+    color: #fff7d6 !important;
+}
+
+
+/* BUTTONS */
+
+html:not(.designer) button,
+html:not(.designer) input[type=button],
+html:not(.designer) input[type=submit],
+html:not(.designer) .button {
+
+    background: #d62c2c !important;
+
+    color: #ffcc33 !important;
+
+    border: 4px solid #000 !important;
+
+    box-shadow:
+        inset -3px -3px 0 #780813,
+        inset 3px 3px 0 #ff6d5d,
+        6px 6px 0 #000 !important;
+}
+
+
+/* SECTION HEADERS */
+
+html:not(.designer) h1,
+html:not(.designer) h2,
+html:not(.designer) h3,
+html:not(.designer) legend {
+
+    color: #ffcc33 !important;
+
+    text-shadow:
+        3px 3px 0 #000,
+        0 0 12px #ff8f1f !important;
+}
