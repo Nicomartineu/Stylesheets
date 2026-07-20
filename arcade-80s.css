@@ -124,3 +124,14 @@ html:not(.designer) div.visible.panel {
 }
 
 
+html:not(.designer) div.visible.panel {
+
+    border-radius: 0 !important;
+
+    -webkit-border-radius: 0 !important;
+
+    -moz-border-radius: 0 !important;
+}
+
+
+
