@@ -134,4 +134,12 @@ html:not(.designer) div.visible.panel {
 }
 
 
+html:not(.designer) div.innerpanel,
+html:not(.designer) div.visible.panel {
+
+    border-radius: 0 !important;
+
+    overflow: visible !important;
+}
+
 
