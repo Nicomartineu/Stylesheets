@@ -453,3 +453,23 @@ html:not(.designer) .tab.active {
     --calendar-navigation-button-hover-text-color:
         #ffcc33 !important;
 }
+
+.theme-entry,
+.theme-entry *,
+.theme-entry .view .innerpanel > .grid,
+.theme-entry .view .innerpanel > .panel,
+.theme-entry .view-canvas > .grid,
+.theme-entry .view-canvas > .panel {
+
+    --calendar-icon-base-color: #ffcc33 !important;
+
+    --calendar-icon-base-secondary-color: #ffcc33 !important;
+
+    --calendar-icon-accent-color: #ffcc33 !important;
+
+    --picker-icon-base-color: #ffcc33 !important;
+
+    --picker-icon-base-secondary-color: #ffcc33 !important;
+
+    --picker-icon-accent-color: #ffcc33 !important;
+}
