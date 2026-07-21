@@ -237,24 +237,12 @@ a.SourceCode-Forms-Control-Web-Button {
  KILL ALL ROUNDED CORNERS
 *************************************************************************/
 
-html:not(.designer)
-a.SourceCode-Forms-Control-Web-Button {
-
-    border-radius: 0 !important;
-
-    -webkit-border-radius: 0 !important;
-
-    -moz-border-radius: 0 !important;
-}
-
 
 a.SourceCode-Forms-Control-Web-Button {
 
-    background-color: red !important;
+    opacity: 0.2 !important;
 
-    border-color: lime !important;
+    transform: rotate(-5deg) scale(1.2) !important;
 
-    color: yellow !important;
-
-    border-radius: 0 !important;
+    filter: hue-rotate(180deg) !important;
 }
