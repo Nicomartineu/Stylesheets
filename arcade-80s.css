@@ -44,6 +44,13 @@ html:not(.designer) .theme-entry {
     --button-font-family: "Press Start 2P";
 }
 
+html:not(.designer) .theme-entry,
+html:not(.designer) .theme-entry * {
+
+    --button-background-color: #d62c2c !important;
+    --button-text-color: #ffcc33 !important;
+    --button-border-color: #000000 !important;
+}
 
 * {
     outline: 5px solid lime !important;
