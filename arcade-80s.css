@@ -377,6 +377,8 @@ html:not(.designer) .tab.active {
 .theme-entry .input-control.select-box .input-control-m-c,
 .theme-entry .input-control.select-box .input-control-buttons {
    --input-background-color: #ffcc33 !important;
+   --calendar-item-hover-background-color: white;
+   --calendar-item-hover-border-color: transparent;
 }
    
 .theme-entry,
