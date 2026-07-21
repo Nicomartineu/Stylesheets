@@ -73,6 +73,27 @@
 
     --button-rounding: 0 !important;
 }
+
+.theme-entry,
+.theme-entry *,
+.theme-entry .view .innerpanel > .grid,
+.theme-entry .view .innerpanel > .panel,
+.theme-entry .view-canvas > .grid,
+.theme-entry .view-canvas > .panel {
+
+    --primary-button-background-color: #d62c2c !important;
+    --primary-button-border-color: #000000 !important;
+    --primary-button-text-color: #ffcc33 !important;
+
+    --primary-button-hover-background-color: #ff5d51 !important;
+    --primary-button-hover-border-color: #000000 !important;
+    --primary-button-hover-text-color: #fff7d6 !important;
+
+    --primary-button-focus-background-color: #1b5ca8 !important;
+    --primary-button-focus-border-color: #33e5ff !important;
+    --primary-button-focus-text-color: #ffcc33 !important;
+}
+
 /* =====================================================
    PAGE BACKGROUND
 ===================================================== */
