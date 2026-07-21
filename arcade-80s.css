@@ -264,6 +264,8 @@ html:not(.designer) select {
 }
 
 
+
+
 /* =====================================================
    INPUT FOCUS
 ===================================================== */
@@ -372,7 +374,11 @@ html:not(.designer) .tab.active {
 /*************************************************************************
  ARCADE CALENDAR
 *************************************************************************/
-
+.theme-entry .input-control.select-box .input-control-m-c,
+.theme-entry .input-control.select-box .input-control-buttons {
+   --input-background-color: #ffcc33 !important;
+}
+   
 .theme-entry,
 .theme-entry *,
 .theme-entry .view .innerpanel > .grid,
