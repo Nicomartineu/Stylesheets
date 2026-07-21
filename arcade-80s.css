@@ -471,11 +471,11 @@ html:not(.designer) .tab.active {
 
     --calendar-icon-base-secondary-color: #fff7d6 !important;
 
-    --calendar-icon-accent-color: #ffcc33 !important;
+    --calendar-icon-accent-color: #fff7d6 !important;
 
-    --picker-icon-base-color: #ffcc33 !important;
+    --picker-icon-base-color: #ffffff !important;
 
-    --picker-icon-base-secondary-color: #ffcc33 !important;
+    --picker-icon-base-secondary-color: #fff7d6 !important;
 
-    --picker-icon-accent-color: #ffcc33 !important;
+    --picker-icon-accent-color: #fff7d6 !important;
 }
