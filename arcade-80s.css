@@ -158,8 +158,7 @@ html:not(.designer) .runtime-content::before {
    PANELS
 ===================================================== */
 
-html:not(.designer) div.innerpanel,
-html:not(.designer) div.visible.panel {
+html:not(.designer) div.innerpanel {
 
     background:
         rgba(0,0,0,.72) !important;
@@ -469,13 +468,13 @@ html:not(.designer) .tab.active {
 
     --calendar-icon-base-color: #ffffff !important;
 
-    --calendar-icon-base-secondary-color: #fff7d6 !important;
+    --calendar-icon-base-secondary-color: #ffcc33 !important;
 
     --calendar-icon-accent-color: #fff7d6 !important;
 
     --picker-icon-base-color: #ffffff !important;
 
-    --picker-icon-base-secondary-color: #fff7d6 !important;
+    --picker-icon-base-secondary-color: #ffcc33 !important;
 
     --picker-icon-accent-color: #fff7d6 !important;
 }
