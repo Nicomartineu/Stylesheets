@@ -33,15 +33,20 @@ K2 ARCADE 80s - CLEAN REBUILD
 }
 
 
-* {
-    outline: 5px solid lime !important;
+html:not(.designer) .theme-entry {
+
+    --button-background-color: #d62c2c;
+    --button-border-color: #000000;
+    --button-text-color: #ffcc33;
+
+    --button-rounding: 0;
+
+    --button-font-family: "Press Start 2P";
 }
 
-html:not(.designer) {
 
-    --primary-button-background-color: #d62c2c !important;
-    --primary-button-border-color: #000000 !important;
-    --primary-button-text-color: #ffcc33 !important;
+* {
+    outline: 5px solid lime !important;
 }
 
 /* ====================================================
