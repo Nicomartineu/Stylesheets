@@ -467,9 +467,9 @@ html:not(.designer) .tab.active {
 .theme-entry .view-canvas > .grid,
 .theme-entry .view-canvas > .panel {
 
-    --calendar-icon-base-color: #ffcc33 !important;
+    --calendar-icon-base-color: #ffffff !important;
 
-    --calendar-icon-base-secondary-color: #ffcc33 !important;
+    --calendar-icon-base-secondary-color: #fff7d6 !important;
 
     --calendar-icon-accent-color: #ffcc33 !important;
 
