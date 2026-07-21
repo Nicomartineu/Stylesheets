@@ -436,7 +436,7 @@ html:not(.designer) .tab.active {
     /* NAVIGATION */
 
     --calendar-navigation-button-background-color:
-        transparent !important;
+        #ffcc33 !important;
 
     --calendar-navigation-button-border-color:
         #1b5ca8 !important;
