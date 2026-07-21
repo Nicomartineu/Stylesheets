@@ -32,6 +32,12 @@ K2 ARCADE 80s - CLEAN REBUILD
 
 }
 
+html:not(.designer) {
+
+    --primary-button-background-color: #d62c2c !important;
+    --primary-button-border-color: #000000 !important;
+    --primary-button-text-color: #ffcc33 !important;
+}
 
 /* ====================================================
    PAGE BACKGROUND
