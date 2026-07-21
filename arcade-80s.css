@@ -30,9 +30,9 @@
 }
 
 
-/* =====================================================
-   ARCADE BUTTON STATES
-===================================================== */
+/*************************************************************************
+ ARCADE BUTTONS
+*************************************************************************/
 
 .theme-entry,
 .theme-entry *,
@@ -42,78 +42,37 @@
 .theme-entry .view-canvas > .panel {
 
     /* NORMAL */
+
     --button-background-color: #d62c2c !important;
     --button-border-color: #000000 !important;
     --button-text-color: #ffcc33 !important;
 
-    /* FONT */
-    --button-font-family: "Press Start 2P", monospace !important;
+    /* HOVER */
 
-    /* SHAPE */
+    --button-hover-background-color: #ff5d51 !important;
+    --button-hover-border-color: #000000 !important;
+    --button-hover-text-color: #fff7d6 !important;
+
+    /* FOCUS */
+
+    --button-focus-background-color: #1b5ca8 !important;
+    --button-focus-border-color: #33e5ff !important;
+    --button-focus-text-color: #ffcc33 !important;
+
+    /* DISABLED */
+
+    --button-disabled-background-color: #444444 !important;
+    --button-disabled-border-color: #222222 !important;
+    --button-disabled-text-color: #888888 !important;
+
+    /* FONT */
+
+    --button-font-family:
+        "Press Start 2P",
+        monospace !important;
+
     --button-rounding: 0 !important;
 }
-
-
-/* =====================================================
-   BUTTON VISUAL FEEDBACK
-===================================================== */
-
-html:not(.designer)
-a.SourceCode-Forms-Control-Web-Button {
-
-    text-transform: uppercase !important;
-
-    text-shadow:
-        2px 2px 0 #000 !important;
-
-    box-shadow:
-        4px 4px 0 #000 !important;
-
-    transition:
-        none !important;
-}
-
-
-/* HOVER */
-
-html:not(.designer)
-a.SourceCode-Forms-Control-Web-Button:hover {
-
-    filter:
-        brightness(1.20)
-        saturate(1.15) !important;
-
-    box-shadow:
-        6px 6px 0 #000,
-        0 0 12px rgba(255,204,51,.45) !important;
-}
-
-
-/* PRESSED */
-
-html:not(.designer)
-a.SourceCode-Forms-Control-Web-Button:active {
-
-    transform:
-        translate(3px,3px);
-
-    box-shadow:
-        inset 3px 3px 0 #000 !important;
-}
-
-
-/* FOCUS */
-
-html:not(.designer)
-a.SourceCode-Forms-Control-Web-Button:focus {
-
-    outline:
-        3px solid #33e5ff !important;
-
-    outline-offset:
-        2px;
-}
-
 /* =====================================================
    PAGE BACKGROUND
 ===================================================== */
@@ -389,98 +348,68 @@ html:not(.designer) .tab.active {
 
 }
 
-/* =====================================================
-   CALENDAR INPUT
-===================================================== */
+/*************************************************************************
+ ARCADE CALENDAR POPUP
+*************************************************************************/
 
-.theme-entry .calendar-control .input-control-watermark,
-.theme-entry .calendar-control input {
+.theme-entry .popup.id-calendar-control-popup,
+.theme-entry .calendar-outline,
+.theme-entry .top-calendar,
+.theme-entry .calendar-content {
 
-    font-family:
-        var(--arcade-body-font) !important;
+    background: #05070f !important;
 
-    font-size:
-        26px !important;
-
-    color:
-        var(--arcade-white) !important;
+    border-radius: 0 !important;
 }
 
 
-/* watermark */
+/* OUTER FRAME */
 
-.theme-entry .calendar-control .input-control-watermark {
+.theme-entry .calendar-outline {
+
+    border: 5px solid #d62c2c !important;
+
+    box-shadow:
+        0 0 0 3px #000,
+        0 0 0 6px #1b5ca8,
+        8px 8px 0 #000 !important;
+}
+
+
+
+/*************************************************************************
+ DAY OF WEEK HEADERS
+*************************************************************************/
+
+.theme-entry span.dayname {
+
+    font-family:
+        var(--arcade-title-font) !important;
 
     color:
         #ffcc33 !important;
 
-    opacity:
-        .75;
+    background:
+        #d62c2c !important;
+
+    border:
+        1px solid #000 !important;
 
     text-transform:
         uppercase;
+
+    text-shadow:
+        1px 1px 0 #000;
 }
 
-.theme-entry .calendar-control {
 
-    border:
-        4px solid var(--arcade-yellow) !important;
 
-    border-radius:
-        0 !important;
+/*************************************************************************
+ CALENDAR CELLS
+*************************************************************************/
+
+.theme-entry .calendar-row {
 
     background:
-        #060913 !important;
-
-    box-shadow:
-        inset 3px 3px 0 #000,
-        3px 3px 0 #000 !important;
-   
+        #05070f !important;
 }
-
-.theme-entry .calendar-control .input-control-buttons {
-
-    background:
-        var(--arcade-red) !important;
-
-    border-left:
-        3px solid #000 !important;
-
-    border-radius:
-        0 !important;
-}
-
-.theme-entry a.SourceCode-Forms-Control-Web-Button:hover {
-
-    filter:
-        brightness(1.25)
-        saturate(1.25);
-
-    box-shadow:
-        6px 6px 0 #000,
-        0 0 16px rgba(255,204,51,.65);
-
-    cursor:
-        pointer;
-}
-
-.theme-entry a.SourceCode-Forms-Control-Web-Button:active {
-
-    transform:
-        translate(3px,3px);
-
-    box-shadow:
-        inset 3px 3px 0 #000;
-}
-
-.theme-entry a.SourceCode-Forms-Control-Web-Button:focus {
-
-    outline:
-        3px solid var(--arcade-cyan);
-
-    outline-offset:
-        2px;
-}
-
-
-
