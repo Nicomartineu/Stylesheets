@@ -292,3 +292,8 @@ a.SFC.SourceCode-Forms-Control-Web-Button:active {
     box-shadow:
         inset 3px 3px 0 #000 !important;
 }
+
+
+a.SourceCode-Forms-Control-Web-Button {
+    display: none !important;
+}
