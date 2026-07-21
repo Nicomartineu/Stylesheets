@@ -160,6 +160,7 @@ html:not(.designer) .runtime-content::before {
 
 html:not(.designer) div.innerpanel {
 
+    --view-background-color: #000000aa;
     background:
         rgba(0,0,0,.72) !important;
 
