@@ -4,6 +4,8 @@ K2 ARCADE 80s - CLEAN REBUILD
 ========================================================
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 /* ====================================================
    PALETTE
 ==================================================== */
@@ -24,6 +26,9 @@ K2 ARCADE 80s - CLEAN REBUILD
     --arcade-white: #fff7d6;
 
     --arcade-panel: rgba(0,0,0,.75);
+    
+    --arcade-title-font: "Press Start 2P", cursive;
+    --arcade-body-font: "VT323", monospace;
 
 }
 
@@ -168,3 +173,26 @@ html:not(.designer) select {
     text-shadow:
         1px 1px 0 #000 !important;
 }
+
+
+html:not(.designer) h1,
+html:not(.designer) h2,
+html:not(.designer) h3,
+html:not(.designer) label,
+html:not(.designer) button,
+html:not(.designer) .tab,
+html:not(.designer) .tab-item {
+
+    font-family:
+        var(--arcade-title-font) !important;
+}
+
+
+
+html:not(.designer) div.visible.panel {
+
+    font-family:
+        var(--arcade-body-font) !important;
+}
+
+
