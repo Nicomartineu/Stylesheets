@@ -349,67 +349,86 @@ html:not(.designer) .tab.active {
 }
 
 /*************************************************************************
- ARCADE CALENDAR POPUP
+ ARCADE CALENDAR
 *************************************************************************/
 
-.theme-entry .popup.id-calendar-control-popup,
-.theme-entry .calendar-outline,
-.theme-entry .top-calendar,
-.theme-entry .calendar-content {
+.theme-entry,
+.theme-entry *,
+.theme-entry .view .innerpanel > .grid,
+.theme-entry .view .innerpanel > .panel,
+.theme-entry .view-canvas > .grid,
+.theme-entry .view-canvas > .panel {
 
-    background: #05070f !important;
+    --calendar-background-color: #05070f !important;
 
-    border-radius: 0 !important;
-}
+    --calendar-text-color: #fff7d6 !important;
 
-
-/* OUTER FRAME */
-
-.theme-entry .calendar-outline {
-
-    border: 5px solid #d62c2c !important;
-
-    box-shadow:
-        0 0 0 3px #000,
-        0 0 0 6px #1b5ca8,
+    --calendar-shadow:
         8px 8px 0 #000 !important;
-}
 
+    --calendar-separator-line-color:
+        #1b5ca8 !important;
 
+    /* DAYS */
 
-/*************************************************************************
- DAY OF WEEK HEADERS
-*************************************************************************/
+    --calendar-item-background-color:
+        transparent !important;
 
-.theme-entry span.dayname {
+    --calendar-item-border-color:
+        transparent !important;
 
-    font-family:
-        var(--arcade-title-font) !important;
+    --calendar-item-text-color:
+        #fff7d6 !important;
 
-    color:
+    /* HOVER DAY */
+
+    --calendar-item-hover-background-color:
+        #1b5ca8 !important;
+
+    --calendar-item-hover-border-color:
+        #1b5ca8 !important;
+
+    --calendar-item-hover-text-color:
         #ffcc33 !important;
 
-    background:
+    /* SELECTED DAY */
+
+    --calendar-selected-item-background-color:
         #d62c2c !important;
 
-    border:
-        1px solid #000 !important;
+    --calendar-selected-item-border-color:
+        #000000 !important;
 
-    text-transform:
-        uppercase;
+    --calendar-selected-item-text-color:
+        #ffcc33 !important;
 
-    text-shadow:
-        1px 1px 0 #000;
-}
+    /* DAY HEADERS */
 
+    --calendar-day-header-text-color:
+        #ffcc33 !important;
 
+    /* TODAY */
 
-/*************************************************************************
- CALENDAR CELLS
-*************************************************************************/
+    --calendar-today-border-color:
+        #33e5ff !important;
 
-.theme-entry .calendar-row {
+    /* NAVIGATION */
 
-    background:
-        #05070f !important;
+    --calendar-navigation-button-background-color:
+        transparent !important;
+
+    --calendar-navigation-button-border-color:
+        #1b5ca8 !important;
+
+    --calendar-navigation-button-text-color:
+        #ffcc33 !important;
+
+    --calendar-navigation-button-hover-background-color:
+        #d62c2c !important;
+
+    --calendar-navigation-button-hover-border-color:
+        #000000 !important;
+
+    --calendar-navigation-button-hover-text-color:
+        #ffcc33 !important;
 }
